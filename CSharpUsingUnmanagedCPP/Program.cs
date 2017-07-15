@@ -49,7 +49,7 @@ namespace CSharpUsingUnmanagedCPP
         static bool exitFlag = false;
         static void CallBackProc(ref UnmanagedCPP.CALLBACK_FIRST_PARAM param, ref uint nCurrentTime)
         {
-            Console.Out.WriteLine("{0}", nCurrentTime);
+            Console.Out.WriteLine("CurrentTime(second)={0}, Struct.Param1={1}, Struct.Param2={2}", nCurrentTime, param.param1, param.param2);
         }
 
         static void Main(string[] args)
