@@ -68,6 +68,8 @@ DWORD CMyTimer::Thread()
 {
 	time_t nTimeStamp = 0;
 	CALLBACK_FIRST_PARAM param;
+	param.member1 = 0;
+	param.member2 = 0;
 	while (true)
 	{
 		Lock();
@@ -80,6 +82,8 @@ DWORD CMyTimer::Thread()
 			time_t nCurrentTime = time(NULL);
 			if (abs(nCurrentTime - nTimeStamp) >= TIMER_CYCLE)
 			{
+				param.member1++;
+				param.member2 = param.member1 + 1;
 				nTimeStamp = nCurrentTime;
 				m_pfnCallBack(&param, &nCurrentTime);
 				Sleep(10);
